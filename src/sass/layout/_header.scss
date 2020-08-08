@@ -1,0 +1,33 @@
+.header {
+  padding: 10px 0;
+}
+
+.header__logo {
+  width: 300px;
+  img {
+    width: 100%;
+  }
+}
+
+.header__score {
+  color: white;
+}
+
+.top-panel {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.page-link {
+  background-color: #CCE8E0;
+  border-color: #CCE8E0;
+}
+
+.levels {
+  margin: 10px 0 0;
+}
+
+.levels__name {
+  flex: 1;
+  text-align: center;
+}
