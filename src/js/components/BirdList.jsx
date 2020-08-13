@@ -13,6 +13,7 @@ const BirdList = (props) => {
     setPoints,
     allPoints,
     setAllPoints,
+    audioPlayer,
   } = props;
   const playAudio = (source) => {
     const audioAnswer = new Audio(source);
@@ -25,6 +26,7 @@ const BirdList = (props) => {
         setIsTrueAnswer(true);
         setAllPoints(allPoints + points);
         playAudio(correctAnswer);
+        audioPlayer.current.audio.current.pause();
       } else {
         if (!isTrueAnswer) {
           playAudio(wrongAnswer);

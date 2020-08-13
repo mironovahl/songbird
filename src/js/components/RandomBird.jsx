@@ -4,7 +4,7 @@ import unknownBird from '../../img/randomBird.jpg';
 import 'react-h5-audio-player/lib/styles.css';
 
 const RandomBird = (props) => {
-  const { randomBird, isTrueAnswer} = props;
+  const { randomBird, isTrueAnswer, audioPlayer } = props;
   console.log(randomBird.name);
 
   return (
@@ -15,6 +15,7 @@ const RandomBird = (props) => {
           <h2>{isTrueAnswer ? randomBird.name : '***'}</h2>
           <hr className="my-4" />
           <AudioPlayer
+            ref={audioPlayer}
             autoPlayAfterSrcChange={false}
             className="randomBird__player"
             src={randomBird.audio}

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, createRef } from 'react';
 import Header from './Header';
 import RandomBird from './RandomBird';
 import BirdContent from './BirdContent';
@@ -13,6 +13,7 @@ function SongBird() {
   const [isTrueAnswer, setIsTrueAnswer] = useState(false);
   const [index, setIndex] = useState(Math.floor(Math.random() * 6));
   const [aboutBird, setAboutBird] = useState(0);
+  const audioPlayer = createRef();
   let currentData = birdsData[1];
   if (level < 6) {
     currentData = birdsData[level];
@@ -32,6 +33,7 @@ function SongBird() {
             <RandomBird
               randomBird={randomBird}
               isTrueAnswer={isTrueAnswer}
+              audioPlayer={audioPlayer}
             />
             <BirdContent
               currentData={currentData}
@@ -44,6 +46,7 @@ function SongBird() {
               setPoints={setPoints}
               allPoints={allPoints}
               setAllPoints={setAllPoints}
+              audioPlayer={audioPlayer}
             />
             <NextButton
               isTrueAnswer={isTrueAnswer}

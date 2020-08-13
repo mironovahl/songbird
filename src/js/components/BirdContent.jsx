@@ -14,6 +14,7 @@ const BirdContent = (props) => {
     setPoints,
     allPoints,
     setAllPoints,
+    audioPlayer,
   } = props;
   return (
     <div className="container">
@@ -28,6 +29,7 @@ const BirdContent = (props) => {
           setPoints={setPoints}
           allPoints={allPoints}
           setAllPoints={setAllPoints}
+          audioPlayer={audioPlayer}
         />
         <BirdCard aboutBird={aboutBird} />
       </div>
