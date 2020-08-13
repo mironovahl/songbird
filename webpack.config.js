@@ -2,6 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   entry: ['./src/index.js', './src/sass/style.scss'],
@@ -47,6 +48,12 @@ module.exports = {
   },
   plugins: [
     new BundleAnalyzerPlugin(),
+    new CopyPlugin({
+      patterns: [
+        { from: './src/audio', to: './audio' },
+        { from: './src/img', to: './img' },
+      ],
+    }),
     new HtmlWebpackPlugin({
       template: './src/index.html',
     }),
