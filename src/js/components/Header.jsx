@@ -24,6 +24,7 @@ const Header = (props) => {
           </div>
           <h3 className="header__score">
             Score:
+            {' '}
             {allPoints}
           </h3>
         </div>

@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import correctAnswer from '../../audio/correct.mp3';
+import wrongAnswer from '../../audio/error.mp3';
 
 const BirdList = (props) => {
   const {
@@ -12,16 +14,24 @@ const BirdList = (props) => {
     allPoints,
     setAllPoints,
   } = props;
+  const playAudio = (source) => {
+    const audioAnswer = new Audio(source);
+    audioAnswer.play();
+  };
   const checkAnswer = (target) => {
-    if (target.innerText === randomBird.name) {
-      target.firstChild.classList.add('correctAnswer');
-      setIsTrueAnswer(true);
-      setAllPoints(allPoints + points);
-    } else {
-      if (!isTrueAnswer) {
-        target.firstChild.classList.add('wrongAnswer');
+    if (!(target.firstChild.classList.contains('correctAnswer') || target.firstChild.classList.contains('wrongAnswer'))) {
+      if (target.innerText === randomBird.name) {
+        target.firstChild.classList.add('correctAnswer');
+        setIsTrueAnswer(true);
+        setAllPoints(allPoints + points);
+        playAudio(correctAnswer);
+      } else {
+        if (!isTrueAnswer) {
+          playAudio(wrongAnswer);
+          target.firstChild.classList.add('wrongAnswer');
+        }
+        setPoints(points - 1);
       }
-      setPoints(points - 1);
     }
   };
   const clickBird = (index, { target }) => {

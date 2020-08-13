@@ -4,6 +4,7 @@ import RandomBird from './RandomBird';
 import BirdContent from './BirdContent';
 import birdsData from '../birdsData';
 import NextButton from './NextButton';
+import EndGame from './EndGame';
 
 function SongBird() {
   const [level, setLevel] = useState(0);
@@ -12,7 +13,10 @@ function SongBird() {
   const [isTrueAnswer, setIsTrueAnswer] = useState(false);
   const [index, setIndex] = useState(Math.floor(Math.random() * 6));
   const [aboutBird, setAboutBird] = useState(0);
-  const currentData = birdsData[level];
+  let currentData = birdsData[1];
+  if (level < 6) {
+    currentData = birdsData[level];
+  }
   const randomBird = currentData[index];
 
   return (
@@ -22,31 +26,36 @@ function SongBird() {
         level={level}
         allPoints={allPoints}
       />
-      <RandomBird
-        randomBird={randomBird}
-        isTrueAnswer={isTrueAnswer}
-      />
-      <BirdContent
-        currentData={currentData}
-        randomBird={randomBird}
-        isTrueAnswer={isTrueAnswer}
-        setIsTrueAnswer={setIsTrueAnswer}
-        aboutBird={aboutBird}
-        setAboutBird={setAboutBird}
-        points={points}
-        setPoints={setPoints}
-        allPoints={allPoints}
-        setAllPoints={setAllPoints}
-      />
-      <NextButton
-        isTrueAnswer={isTrueAnswer}
-        setIsTrueAnswer={setIsTrueAnswer}
-        level={level}
-        setLevel={setLevel}
-        setIndex={setIndex}
-        setAboutBird={setAboutBird}
-        setPoints={setPoints}
-      />
+      {level > 5 ? <EndGame allPoints={allPoints} setLevel={setLevel} setAllPoints={setAllPoints} />
+        : (
+          <>
+            <RandomBird
+              randomBird={randomBird}
+              isTrueAnswer={isTrueAnswer}
+            />
+            <BirdContent
+              currentData={currentData}
+              randomBird={randomBird}
+              isTrueAnswer={isTrueAnswer}
+              setIsTrueAnswer={setIsTrueAnswer}
+              aboutBird={aboutBird}
+              setAboutBird={setAboutBird}
+              points={points}
+              setPoints={setPoints}
+              allPoints={allPoints}
+              setAllPoints={setAllPoints}
+            />
+            <NextButton
+              isTrueAnswer={isTrueAnswer}
+              setIsTrueAnswer={setIsTrueAnswer}
+              level={level}
+              setLevel={setLevel}
+              setIndex={setIndex}
+              setAboutBird={setAboutBird}
+              setPoints={setPoints}
+            />
+          </>
+        )}
     </>
   );
 }

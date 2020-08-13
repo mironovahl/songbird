@@ -16,7 +16,9 @@ const NextButton = (props) => {
     setLevel(level + 1);
     setIsTrueAnswer(false);
     setAboutBird(0);
-    setIndex(Math.floor(Math.random() * 6));
+    if (level < 5) {
+      setIndex(Math.floor(Math.random() * 6));
+    }
     setPoints(5);
   };
 

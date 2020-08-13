@@ -5,6 +5,7 @@ import 'react-h5-audio-player/lib/styles.css';
 
 const RandomBird = (props) => {
   const { randomBird, isTrueAnswer} = props;
+  console.log(randomBird.name);
 
   return (
     <div className="container">
