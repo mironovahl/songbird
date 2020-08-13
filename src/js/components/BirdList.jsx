@@ -4,15 +4,24 @@ const BirdList = (props) => {
   const {
     currentData,
     randomBird,
+    isTrueAnswer,
     setIsTrueAnswer,
-    setAboutBird
+    setAboutBird,
+    points,
+    setPoints,
+    allPoints,
+    setAllPoints,
   } = props;
   const checkAnswer = (target) => {
     if (target.innerText === randomBird.name) {
       target.firstChild.classList.add('correctAnswer');
       setIsTrueAnswer(true);
+      setAllPoints(allPoints + points);
     } else {
-      target.firstChild.classList.add('wrongAnswer');
+      if (!isTrueAnswer) {
+        target.firstChild.classList.add('wrongAnswer');
+      }
+      setPoints(points - 1);
     }
   };
   const clickBird = (index, { target }) => {

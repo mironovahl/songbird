@@ -8,6 +8,7 @@ const NextButton = (props) => {
     setLevel,
     setIndex,
     setAboutBird,
+    setPoints,
   } = props;
   const classDisabled = isTrueAnswer ? '' : 'disabled';
 
@@ -15,6 +16,8 @@ const NextButton = (props) => {
     setLevel(level + 1);
     setIsTrueAnswer(false);
     setAboutBird(0);
+    setIndex(Math.floor(Math.random() * 6));
+    setPoints(5);
   };
 
   return (
@@ -22,10 +25,7 @@ const NextButton = (props) => {
       <button
         type="button"
         className={`nextButton btn btn-primary ${classDisabled}`}
-        onClick={() => {
-          setIndex(Math.floor(Math.random() * 6));
-          return isTrueAnswer ? setLevel(level + 1) : null;
-        }}
+        onClick={() => (isTrueAnswer ? reset() : null)}
       >
         Следующий уровень
       </button>

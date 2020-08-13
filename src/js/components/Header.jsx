@@ -14,8 +14,7 @@ const generateLevels = (level) => {
 };
 
 const Header = (props) => {
-  const { level } = props;
-  const h = 0;
+  const { level, allPoints } = props;
   return (
     <header className="header bg-primary">
       <div className="container">
@@ -25,8 +24,7 @@ const Header = (props) => {
           </div>
           <h3 className="header__score">
             Score:
-            {' '}
-            {h}
+            {allPoints}
           </h3>
         </div>
         <div>
