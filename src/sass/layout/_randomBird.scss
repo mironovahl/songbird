@@ -1,7 +1,10 @@
 .randomBird {
-  height: 16rem;
   margin: 10px 0;
   padding: 2rem;
+  @media (max-width: 570px) {
+    flex-direction: column;
+    text-align: center;
+  }
 }
 
 .randomBird__image {
@@ -9,6 +12,9 @@
   height: 12rem;
   margin-right: 20px;
   border-radius: 8px;
+  @media (max-width: 570px) {
+    margin: auto;
+  }
 }
 
 .randomBird__player {

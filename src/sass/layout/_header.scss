@@ -24,7 +24,9 @@
 }
 
 .levels {
+  display: flex;
   margin: 10px 0 0;
+  flex-wrap: wrap;
 }
 
 .levels__name {

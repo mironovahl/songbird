@@ -9,7 +9,7 @@ const BirdCard = (props) => {
     <div className="birdContent__card">
       {!aboutBird ? <p>Послушайте плеер и выберите птицу из списка.</p>
         : (
-          <div>
+          <>
             <div className="birdContent__card_main d-flex">
               <img className="card__image" src={aboutBird.image} alt="unknownBird" />
               <div className="card__about">
@@ -24,7 +24,7 @@ const BirdCard = (props) => {
               </div>
             </div>
             <p className="birdContent__card_description">{aboutBird.description}</p>
-          </div>
+          </>
         )}
     </div>
   );

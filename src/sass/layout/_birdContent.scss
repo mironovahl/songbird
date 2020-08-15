@@ -1,18 +1,33 @@
 .birdContent__list {
   width: 38%;
+  @media (max-width: 570px) {
+    width: 100%;
+    margin: 10px 0;
+  }
 }
 
 .birdContent__card {
   width: 58%;
-  padding: 2rem;
+  padding: 2rem 2rem 0;
   border: 1px solid rgba(0, 0, 0, 0.125);
-  height: 295px;
+//  height: 295px;
   border-radius: 0.4rem;
+  @media (max-width: 570px) {
+    width: 100%;
+    margin: 10px 0;
+  }
+}
+
+.birdContent__card_description {
+  margin: 0;
 }
 
 .birdContent {
   justify-content: space-between;
   margin: 10px 0 0;
+  @media (max-width: 570px) {
+    flex-direction: column;
+  }
 }
 
 .card__image {
@@ -28,6 +43,9 @@
 
 .birdContent__card_main {
   align-items: center;
+  @media (max-width: 991px) {
+    flex-direction: column;
+  }
 }
 
 .card__about_name--latin {
