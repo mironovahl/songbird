@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import correctAnswer from '../../audio/correct.mp3';
 import wrongAnswer from '../../audio/error.mp3';
 
@@ -15,6 +16,7 @@ const BirdList = (props) => {
     setAllPoints,
     audioPlayer,
   } = props;
+
   const playAudio = (source) => {
     const audioAnswer = new Audio(source);
     audioAnswer.play();
@@ -51,6 +53,26 @@ const BirdList = (props) => {
       ))}
     </ul>
   );
+};
+
+BirdList.propTypes = {
+  currentData: PropTypes.arrayOf(PropTypes.object).isRequired,
+  randomBird: PropTypes.shape({
+    id: PropTypes.number,
+    name: PropTypes.string,
+    species: PropTypes.string,
+    description: PropTypes.string,
+    image: PropTypes.string,
+    audio: PropTypes.string,
+  }).isRequired,
+  isTrueAnswer: PropTypes.bool.isRequired,
+  setIsTrueAnswer: PropTypes.func.isRequired,
+  setAboutBird: PropTypes.func.isRequired,
+  points: PropTypes.number.isRequired,
+  setPoints: PropTypes.func.isRequired,
+  allPoints: PropTypes.number.isRequired,
+  setAllPoints: PropTypes.func.isRequired,
+  audioPlayer: PropTypes.objectOf(PropTypes.object).isRequired,
 };
 
 export default BirdList;

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const NextButton = (props) => {
   const {
@@ -10,6 +11,7 @@ const NextButton = (props) => {
     setAboutBird,
     setPoints,
   } = props;
+
   const classDisabled = isTrueAnswer ? '' : 'disabled';
 
   const reset = () => {
@@ -33,6 +35,16 @@ const NextButton = (props) => {
       </button>
     </div>
   );
+};
+
+NextButton.propTypes = {
+  isTrueAnswer: PropTypes.bool.isRequired,
+  setIsTrueAnswer: PropTypes.func.isRequired,
+  level: PropTypes.number.isRequired,
+  setLevel: PropTypes.func.isRequired,
+  setIndex: PropTypes.func.isRequired,
+  setAboutBird: PropTypes.func.isRequired,
+  setPoints: PropTypes.func.isRequired,
 };
 
 export default NextButton;

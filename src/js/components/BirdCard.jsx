@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import AudioPlayer from 'react-h5-audio-player';
 import 'react-h5-audio-player/lib/styles.css';
 
@@ -27,6 +28,20 @@ const BirdCard = (props) => {
         )}
     </div>
   );
+};
+
+BirdCard.propTypes = {
+  aboutBird: PropTypes.oneOfType([
+    PropTypes.shape({
+      id: PropTypes.number,
+      name: PropTypes.string,
+      species: PropTypes.string,
+      description: PropTypes.string,
+      image: PropTypes.string,
+      audio: PropTypes.string,
+    }),
+    PropTypes.number,
+  ]).isRequired,
 };
 
 export default BirdCard;

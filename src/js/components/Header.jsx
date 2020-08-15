@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import logo from '../../img/logo.png';
 
 const generateLevels = (level) => {
@@ -37,6 +38,11 @@ const Header = (props) => {
       </div>
     </header>
   );
+};
+
+Header.propTypes = {
+  level: PropTypes.number.isRequired,
+  allPoints: PropTypes.number.isRequired,
 };
 
 export default Header;

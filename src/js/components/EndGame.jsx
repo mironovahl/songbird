@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import certificate from '../../img/certificate.png';
 
 const EndGame = (props) => {
@@ -23,6 +24,12 @@ const EndGame = (props) => {
       </div>
     </div>
   );
+};
+
+EndGame.propTypes = {
+  allPoints: PropTypes.number.isRequired,
+  setLevel: PropTypes.func.isRequired,
+  setAllPoints: PropTypes.func.isRequired,
 };
 
 export default EndGame;

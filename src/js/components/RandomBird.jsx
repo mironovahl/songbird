@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import AudioPlayer from 'react-h5-audio-player';
 import unknownBird from '../../img/randomBird.jpg';
 import 'react-h5-audio-player/lib/styles.css';
@@ -6,6 +7,18 @@ import 'react-h5-audio-player/lib/styles.css';
 const RandomBird = (props) => {
   const { randomBird, isTrueAnswer, audioPlayer } = props;
   console.log(randomBird.name);
+  RandomBird.propTypes = {
+    randomBird: PropTypes.shape({
+      id: PropTypes.number,
+      name: PropTypes.string,
+      species: PropTypes.string,
+      description: PropTypes.string,
+      image: PropTypes.string,
+      audio: PropTypes.string,
+    }).isRequired,
+    isTrueAnswer: PropTypes.bool.isRequired,
+    audioPlayer: PropTypes.objectOf(PropTypes.string).isRequired,
+  };
 
   return (
     <div className="container">
