@@ -1,0 +1,26 @@
+.randomBird {
+  margin: 10px 0;
+  padding: 2rem;
+  @media (max-width: 570px) {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+.randomBird__image {
+  width: 250px;
+  height: 12rem;
+  margin-right: 20px;
+  border-radius: 8px;
+  @media (max-width: 570px) {
+    margin: auto;
+  }
+}
+
+.randomBird__player {
+  //width: 100%;
+}
+
+.randomBird__content {
+  width: 100%;
+}
